@@ -1,0 +1,22 @@
+{
+    "name": "@lljj/cli",
+    "version": "0.0.1",
+    "description": "又一个 cli",
+    "repository": "https://github.com/lljj-x/lljj-cli",
+    "homepage": "https://github.com/lljj-x/lljj-cli",
+    "author": "Liu.Jun",
+    "license": "MIT",
+    "bin": {
+        "lljj": "bin/lljj.js"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "chalk": "^4.1.0",
+        "commander": "^6.2.0",
+        "download-git-repo": "^3.0.2",
+        "inquirer": "^7.3.3",
+        "ora": "^5.1.0"
+    }
+}
