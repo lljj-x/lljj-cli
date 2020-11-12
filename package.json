@@ -1,0 +1,46 @@
+{
+    "private": true,
+    "description": "又一个 cli",
+    "repository": "https://github.com/lljj-x/lljj-cli",
+    "homepage": "https://github.com/lljj-x/lljj-cli",
+    "author": "Liu.Jun",
+    "workspaces": [
+        "packages/*"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 2",
+        "clean": "lerna clean && rm -rf node_modules",
+        "packages:diff": "lerna diff",
+        "packages:list": "lerna ls -l",
+        "packages:changed": "lerna changed",
+        "packages:build": "lerna run --stream --sort build",
+        "publish": "yarn run lib:build && lerna publish",
+        "autoPublish": "lerna publish --conventional-commits --yes",
+        "autoVersion": "lerna version --conventional-commits --yes"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "dependencies": {},
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "devDependencies": {
+        "@lljj/eslint-config": "0.1.0",
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "commitizen": "^4.1.2",
+        "conventional-changelog-cli": "^2.0.34",
+        "cz-conventional-changelog": "^3.2.0",
+        "husky": "^4.2.5",
+        "lerna": "^3.22.1",
+        "babel-eslint": "^10.0.3",
+        "eslint": "^5.16.0",
+        "eslint-plugin-import": "^2.20.2"
+    }
+}
