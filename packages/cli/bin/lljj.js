@@ -2,20 +2,27 @@
 
 const program = require('commander');
 
+// version
 program
-    .version(require('../package').version)
+    .version(`@lljj/cli ${require('../package').version}`)
     .usage('<command> [options]');
 
+// options
 program
-    // .command('create', '(for v3 warning only)')
+    .option('-d, --debug', 'output extra debugging');
+program.parse(process.argv);
+
+if (program.debug) console.log(program.opts());
+
+
+// command
+program
     .command('create <app-name>')
-    .description('create a new project powered by vue-cli-service')
+    .description('创建一个新项目')
+    .option('-d, --debug', 'output extra debugging')
     .action((name, cmd) => {
-        // --git makes commander to default git to true
-        if (process.argv.includes('-g') || process.argv.includes('--git')) {
-            options.forceGit = true;
-        }
-        require('../lib/create')(name, options);
+        const options = program.opts();
+        require('../lib/lljj/create')(name, options);
     });
 
 program
