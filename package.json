@@ -5,7 +5,7 @@
     "homepage": "https://github.com/lljj-x/lljj-cli",
     "author": "Liu.Jun",
     "workspaces": [
-        "packages/*"
+        "packages/cli"
     ],
     "license": "MIT",
     "scripts": {
