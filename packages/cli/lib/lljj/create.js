@@ -82,11 +82,11 @@ async function prompt() {
         },
         {
             name: 'packageName',
-            message: '请输入packageName（默认等于项目名）： '
+            message: '请输 Package name（默认等于项目名）： '
         },
         {
             name: 'packageDescription',
-            message: '请输入项目描述（用于配置package.json文件）： '
+            message: '请输入 Package description（用于配置package.json文件）： '
         }
     ]);
 }
