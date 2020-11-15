@@ -14,12 +14,11 @@ program.parse(process.argv);
 
 if (program.debug) console.log(program.opts());
 
-
 // command
 program
     .command('create <app-name>')
     .description('创建一个新项目')
-    .action((name, cmd) => {
+    .action((name) => {
         const options = program.opts();
         require('../lib/lljj/create')(name, options);
     });

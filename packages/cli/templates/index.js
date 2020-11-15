@@ -32,7 +32,11 @@ module.exports = async (targetDir, options) => {
             return preVal;
         }, {
             files: `${targetDir}/**`,
-            ignore: `${targetDir}/**/*.lock`,
+            ignore: [
+                `${targetDir}/**/*.lock`,
+                `${targetDir}/**/node_modules/**`,
+                `${targetDir}/**/dist/**`,
+            ],
             from: [],
             to: []
         });

@@ -119,14 +119,14 @@ async function create(projectName, options) {
     options = {
         ...options,
         ...userOptions,
-        packageName: userOptions.packageName || projectName,
+        packageName: userOptions.packageName || name,
     };
 
     // 生成文件模板
     await genTemplate(targetDir, options);
 
     console.log(chalk.green('\n项目初始化成功！'));
-    console.log(chalk.blue.dim(`提示：执行 cd ${projectName} && yarn install 安装依赖`));
+    console.log(chalk.blue.dim(`提示：执行 cd ${name} && yarn install 安装依赖`));
 }
 
 module.exports = (...args) => create(...args).catch((err) => {
