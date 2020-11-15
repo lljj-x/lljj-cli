@@ -11,14 +11,19 @@ const packageData = require('../package.json');
 // eslint-disable-next-line max-len
 const banner = `/** @license ${packageData.name} (c) 2020-${new Date().getFullYear()} ${packageData.author} License: ${packageData.license} */`;
 
+function toHump(str) {
+    return str.replace(/\/([a-z])/ig, (all, letter) => letter.toUpperCase())
+        .replace(/^(@)/, '');
+}
+
 module.exports = {
     entry: resolve('src/index.js'),
     banner,
     extractcss: false,
     output: {
         path: resolve('dist/'),
-        file: '<packageName>', // 导出文件名，自动拼接 format
-        name: '<packageName>', // umd 注册的全局变量名称
+        file: toHump('<packageName>'), // 导出文件名，自动拼接 format
+        name: toHump('<packageName>'), // umd 注册的全局变量名称
         format: ['esm', 'umd']
     }
 };

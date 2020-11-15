@@ -3,7 +3,7 @@
     "description": "<packageDescription>",
     "repository": "",
     "homepage": "",
-    "author": "Liu.Jun",
+    "author": "<packageAuthor>",
     "workspaces": [
         "packages/*"
     ],

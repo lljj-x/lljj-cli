@@ -19,15 +19,9 @@ if (program.debug) console.log(program.opts());
 program
     .command('create <app-name>')
     .description('创建一个新项目')
-    .option('-d, --debug', 'output extra debugging')
     .action((name, cmd) => {
         const options = program.opts();
         require('../lib/lljj/create')(name, options);
     });
-
-program
-    .command('init', 'generate a new project from a template')
-    .command('list', 'list available official templates')
-    .command('build', 'prototype a new project');
 
 program.parse(process.argv);

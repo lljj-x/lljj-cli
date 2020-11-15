@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const validateProjectName = require('validate-npm-package-name');
 const chalk = require('chalk');
+const execSync = require('child_process').execSync;
 const inquirer = require('inquirer');
 const genTemplate = require('../../templates');
 const { exit } = require('../../utils');
@@ -30,12 +31,23 @@ function validForNewPackages(name) {
     }
 }
 
-function validDir(targetDir) {
+async function validDir(targetDir) {
     if (fs.existsSync(targetDir)) {
         console.log(chalk.red.dim(`已经存在目录：${targetDir}...`));
-        console.log(chalk.blue.dim('提示：请清空目录后再次尝试'));
 
-        exit(1);
+        const answer = await inquirer.prompt([
+            {
+                name: 'useTarget',
+                type: 'confirm',
+                message: '是否继续使用当前目录',
+                default: true
+            },
+        ])
+
+        if (!answer.useTarget) {
+            console.log(chalk.blue.dim('提示：请清空目录后再次尝试'));
+            exit(1);
+        }
     }
 }
 
@@ -70,7 +82,7 @@ async function prompt() {
         },
         {
             name: 'packageName',
-            message: '请输入项目描述（默认等于项目名）： '
+            message: '请输入packageName（默认等于项目名）： '
         },
         {
             name: 'packageDescription',
@@ -88,20 +100,33 @@ async function create(projectName, options) {
     const targetDir = path.resolve(cwd, projectName || '.');
 
     validForNewPackages(name);
-    validDir(targetDir);
+    await validDir(targetDir);
 
     // 用户交互
     const userOptions = await prompt();
+
+    // git 信息
+    try {
+        const gitUserName = execSync('git config user.name').toString().trim();
+        options = {
+            ...options,
+            packageAuthor: gitUserName
+        }
+    } catch (e) {
+        // nothing ..
+    }
+
     options = {
         ...options,
         ...userOptions,
-        packageName: options.packageName || projectName,
+        packageName: userOptions.packageName || projectName,
     };
 
     // 生成文件模板
     await genTemplate(targetDir, options);
 
-    console.log('文件生成');
+    console.log(chalk.green('\n项目初始化成功！'));
+    console.log(chalk.blue.dim(`提示：执行 cd ${projectName} && yarn install 安装依赖`));
 }
 
 module.exports = (...args) => create(...args).catch((err) => {
