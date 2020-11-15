@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/lljj-x/lljj-cli/compare/v0.1.1...v0.1.2) (2020-11-15)
+
+
+### Bug Fixes
+
+* **cli:** 修复npm忽略文件 ([ac60af5](https://github.com/lljj-x/lljj-cli/commit/ac60af59b2a38c75b2623ab7141c4176177ddf16))
+
+
+
+
+
 ## [0.1.1](https://github.com/lljj-x/lljj-cli/compare/v0.1.0...v0.1.1) (2020-11-15)
 
 
