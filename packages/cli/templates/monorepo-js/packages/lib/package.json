@@ -11,7 +11,7 @@
     "keywords": [],
     "typings": "types/index.d.ts",
     "files": [
-        "dist/*.js",
+        "scripts/**","src/**","dist/*.js",
         "types/*.d.ts"
     ],
     "repository": "",

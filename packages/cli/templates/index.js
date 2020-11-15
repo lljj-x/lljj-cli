@@ -42,6 +42,13 @@ module.exports = async (targetDir, options) => {
         });
         await replace(replaceOptions);
 
+        // lib 下一个特殊文件处理
+        await replace({
+            files: `${targetDir}/packages/lib/package.json`,
+            from: ['"scripts/**",', '"src/**",'],
+            to: ''
+        });
+
         // 模板准备完毕
     } catch (e) {
         console.log(chalk.red.dim('\n生成模板文件失败：'));
