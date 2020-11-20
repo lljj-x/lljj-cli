@@ -33,12 +33,12 @@ const isEntry = (filePath, curDir) => {
 // 默认的模板文件
 const defaultTemp = path.resolve(__dirname, '../default.html');
 
-function entryFn({ dir }) {
+function entryFn({ dir, chunks = [] }) {
     // entry 文件相对的目录
-    const dirPath = path.normalize(path.resolve(__dirname, '../src/pages'));
+    const dirPath = path.normalize(path.resolve(__dirname, '../src'));
 
     // entry 文件
-    const filePath = path.normalize(path.resolve(__dirname, '../src/pages/**/*.js'));
+    const filePath = path.normalize(path.resolve(__dirname, '../src/**/*.js'));
 
     const temFiles = glob.sync(filePath);
     const curDir = dir ? String(dir).split(',') : [];
@@ -61,7 +61,10 @@ function entryFn({ dir }) {
             template: fs.existsSync(entry.replace('.js', '.html')) ? entry.replace('.js', '.html') : defaultTemp,
             filename: `${entryName}.html`,
             title: `${entryName} - Test Demo`,
-
+            chunks: [
+                entryName,
+                ...chunks
+            ]
             // chunks to include on this pages, by default includes
             // extracted common chunks and vendor chunks.
             // chunks: ['chunk-runtime', 'chunk-vendors-polyfill', 'index']
@@ -75,13 +78,16 @@ function entryFn({ dir }) {
     };
 }
 
-module.exports = () => {
+module.exports = ({
+    chunks = []
+} = {}) => {
     // 相对于 根目录
     const {
         dir, // 指定编译的目录
     } = envConfig.getConfig();
 
     return entryFn({
-        dir
+        dir,
+        chunks
     });
 };
