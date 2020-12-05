@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/lljj-x/lljj-cli/compare/v0.2.0...v0.2.1) (2020-12-05)
+
+
+### Bug Fixes
+
+* **lib:** 修复vue文件编译失败 ([0046e97](https://github.com/lljj-x/lljj-cli/commit/0046e97a11ba8956557f09d702c0db00e63b1280))
+
+
+
+
+
 # [0.2.0](https://github.com/lljj-x/lljj-cli/compare/v0.1.4...v0.2.0) (2020-12-05)
 
 
