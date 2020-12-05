@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/lljj-x/lljj-cli/compare/v0.1.4...v0.2.0) (2020-12-05)
+
+
+### Features
+
+* **lib:** 更新package eslint ([b1b9d84](https://github.com/lljj-x/lljj-cli/commit/b1b9d845b60398b182ea500d0f2025f7be8e85b8))
+
+
+
+
+
 ## [0.1.4](https://github.com/lljj-x/lljj-cli/compare/v0.1.3...v0.1.4) (2020-11-15)
 
 
