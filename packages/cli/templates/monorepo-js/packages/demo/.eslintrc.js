@@ -5,5 +5,6 @@ module.exports = {
     },
     extends: [
         '@lljj/eslint-config'
-    ]
+    ],
+    parser: 'babel-eslint'
 };
