@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/lljj-x/lljj-cli/compare/v0.2.1...v0.3.0) (2021-01-07)
+
+
+### Bug Fixes
+
+* **entry:** 修复template entry pages 目录 ([dbcf26e](https://github.com/lljj-x/lljj-cli/commit/dbcf26e949fd767e0475a3799c7abe9391a4e654))
+
+
+### Features
+
+* eslint 默认 babel eslint ([476dba7](https://github.com/lljj-x/lljj-cli/commit/476dba78b773e3d8c2521bf80799a014701a2c4b))
+
+
+
+
+
 ## [0.2.1](https://github.com/lljj-x/lljj-cli/compare/v0.2.0...v0.2.1) (2020-12-05)
 
 
