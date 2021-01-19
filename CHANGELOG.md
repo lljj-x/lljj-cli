@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/lljj-x/lljj-cli/compare/v0.3.0...v0.3.1) (2021-01-19)
+
+
+### Bug Fixes
+
+* **template:** 更新模板修复 .vue 文件不会通过babel转换的问题 ([6577476](https://github.com/lljj-x/lljj-cli/commit/6577476b80295e189c811d5acf86f4845cd3d08b))
+
+
+
+
+
 # [0.3.0](https://github.com/lljj-x/lljj-cli/compare/v0.2.1...v0.3.0) (2021-01-07)
 
 
