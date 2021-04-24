@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.4](https://github.com/lljj-x/lljj-cli/compare/v0.3.3...v0.3.4) (2021-04-24)
+
+
+### Bug Fixes
+
+* **cli:** update ([e9a52bd](https://github.com/lljj-x/lljj-cli/commit/e9a52bd13000d24b4bd2c4f67356bb8e037d2a59))
+
+
+
+
+
 ## [0.3.3](https://github.com/lljj-x/lljj-cli/compare/v0.3.2...v0.3.3) (2021-04-24)
 
 
