@@ -15,9 +15,9 @@
         "packages:list": "lerna ls -l",
         "packages:changed": "lerna changed",
         "packages:build": "lerna run --stream --sort build",
-        "prePublish": "node ",
+        "generateTemplate": "node generatorZipTemplates.js",
         "autoPublish": "lerna publish --conventional-commits --yes",
-        "autoVersion": "lerna version --conventional-commits --yes"
+        "autoVersion": "yarn generateTemplate && lerna version --conventional-commits --yes"
     },
     "config": {
         "commitizen": {
