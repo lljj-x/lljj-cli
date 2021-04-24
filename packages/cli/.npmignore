@@ -19,6 +19,6 @@ yarn-error.log*
 *.sln
 *.sw?
 
-templates/monorepo-js/*
-templates/monorepo-ts/*
-templates/index.js
+# templates/monorepo-js/*
+# templates/monorepo-ts/*
+# templates/index.js

@@ -34,7 +34,7 @@ function extractTpl() {
 
 module.exports = async (targetDir, options) => {
     // 首先解压缩模板文件包
-    await extractTpl()
+    await extractTpl();
 
     const baseTemplate = templates[options.framework === 'vue' ? 'monorepo-vue-js' : 'monorepo-vue-ts'];
 
