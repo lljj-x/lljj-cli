@@ -2,7 +2,7 @@
 node_modules
 
 # 忽略压缩文件
-packages/cli/templates/*.zip
+templates/*.zip
 
 # local env files
 .env.local

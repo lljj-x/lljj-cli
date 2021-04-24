@@ -7,13 +7,35 @@ const path = require('path');
 const chalk = require('chalk');
 const replace = require('replace-in-file');
 const { exit } = require('../utils');
+const extract = require('extract-zip');
 
 const templates = {
     'monorepo-vue-js': path.resolve(__dirname, './monorepo-js'),
     'monorepo-vue-ts': path.resolve(__dirname, './monorepo-ts'),
 };
 
+// 提取模板文件
+function extractTpl() {
+    return new Promise((resolve, reject) => {
+            extract(
+                path.resolve(__dirname, 'templates.zip'),
+                { dir: path.resolve(__dirname, './') },
+                (err) => {
+                    if (err) {
+                        return reject(err)
+                    }
+
+                    console.log(chalk.red.dim('\n提取模板文件成功：'));
+                    return resolve()
+                })
+        }
+    )
+}
+
 module.exports = async (targetDir, options) => {
+    // 首先解压缩模板文件包
+    await extractTpl()
+
     const baseTemplate = templates[options.framework === 'vue' ? 'monorepo-vue-js' : 'monorepo-vue-ts'];
 
     try {

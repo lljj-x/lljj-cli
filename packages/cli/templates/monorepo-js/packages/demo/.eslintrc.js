@@ -3,8 +3,13 @@ module.exports = {
     env: {
         browser: true
     },
+    plugins: ['vue'],
     extends: [
-        '@lljj/eslint-config'
+        '@lljj/eslint-config',
+        '@lljj/eslint-config/vue'
     ],
-    parser: 'babel-eslint'
+    parserOptions: {
+        parser: 'babel-eslint',
+        sourceType: 'module'
+    }
 };

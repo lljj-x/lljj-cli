@@ -15,7 +15,7 @@
         "packages:list": "lerna ls -l",
         "packages:changed": "lerna changed",
         "packages:build": "lerna run --stream --sort build",
-        "publish": "lerna publish",
+        "prePublish": "node ",
         "autoPublish": "lerna publish --conventional-commits --yes",
         "autoVersion": "lerna version --conventional-commits --yes"
     },
@@ -31,6 +31,7 @@
         }
     },
     "devDependencies": {
+        "zip-dir": "^2.0.0",
         "@lljj/eslint-config": "0.1.0",
         "@commitlint/cli": "^8.3.5",
         "@commitlint/config-conventional": "^8.3.4",

@@ -1,9 +1,6 @@
 .DS_Store
 node_modules
 
-# 忽略压缩文件
-packages/cli/templates/*.zip
-
 # local env files
 .env.local
 .env.*.local
@@ -21,3 +18,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+templates/monorepo-js/*
+templates/monorepo-ts/*
+templates/index.js
