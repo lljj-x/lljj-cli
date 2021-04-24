@@ -9,20 +9,21 @@ const replace = require('replace-in-file');
 const { exit } = require('../utils');
 const extract = require('extract-zip');
 
-const templates = {
-    'monorepo-vue-js': path.resolve(__dirname, './monorepo-js'),
-    'monorepo-vue-ts': path.resolve(__dirname, './monorepo-ts'),
-};
+
+const templates = () => ({
+    'monorepo-vue-js': path.resolve(__dirname, './monorepo-js.zip'),
+    'monorepo-vue-ts': path.resolve(__dirname, './monorepo-ts.zip'),
+})
 
 // 提取模板文件
-function extractTpl() {
+function extractTpl(source, targetDir) {
     return new Promise((resolve, reject) => {
             extract(
-                path.resolve(__dirname, 'templates.zip'),
-                { dir: path.resolve(__dirname, './') },
+                path.resolve(__dirname, source),
+                { dir: targetDir },
                 (err) => {
                     if (err) {
-                        return reject(err)
+                        return reject(err);
                     }
 
                     console.log(chalk.red.dim('\n提取模板文件成功：'));
@@ -33,14 +34,15 @@ function extractTpl() {
 }
 
 module.exports = async (targetDir, options) => {
-    // 首先解压缩模板文件包
-    await extractTpl();
 
-    const baseTemplate = templates[options.framework === 'vue' ? 'monorepo-vue-js' : 'monorepo-vue-ts'];
+    const baseTemplate = templates()[options.framework === 'vue' ? 'monorepo-vue-js' : 'monorepo-vue-ts'];
 
     try {
+        // 首先解压缩模板文件包
+        await extractTpl(baseTemplate, targetDir);
+
         // step1
-        await fs.copy(baseTemplate, targetDir);
+        // await fs.copy(baseTemplate, targetDir);
 
         // single
         if (options.type === 'single') {
